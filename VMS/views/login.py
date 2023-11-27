@@ -14,7 +14,7 @@ class LoginView(GenericAPIView):
             if username==None  or password==None :
                 return Response({"Error": " 'username' and 'password' both the field should be non empty  field"}, status=status.HTTP_400_BAD_REQUEST)
             user = CustomUser.objects.get(username=username, password=password)
-
+            # returing the token 
             refresh = RefreshToken.for_user(user)
             access_token = str(refresh.access_token)
             return Response({"data":{"msg":"user created successfully","token":access_token}}, status=status.HTTP_200_OK)

@@ -28,8 +28,6 @@ class VendordetailsSerializer(serializers.ModelSerializer):
         model = Vendor
         fields = ('__all__')
         extra_kwargs = {
-            'createdBy': {'required': False},
-            'updatedBy': {'required': False},
             'on_time_delivery_rate': {'required': False},
             'quality_rating_avg': {'required': False},
             'average_response_time': {'required': False},

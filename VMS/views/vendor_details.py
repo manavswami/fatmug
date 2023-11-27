@@ -23,13 +23,12 @@ class VendorDetailsView(GenericAPIView):
  
     def post(self, request):
         try:
-            name=request.data.get("name")
             contact_details=request.data.get("contact_details")
             if contact_details:
-                contact_details=" ".join(contact_details.split())
+                contact_details=" ".join(contact_details.split()) #removing all extra space from text
             address=request.data.get("address")
             if address:
-                address=" ".join(address.split())
+                address=" ".join(address.split()) #removing all extra space from text
             if contact_details ==None  or address== None:
                 return Response({"Error": f"for creating Vendor both   'contact_details' and   'address'  fields are required"}, status=status.HTTP_400_BAD_REQUEST)
             object_exit_or_not=Vendor.objects.filter(contact_details=contact_details,  address=address, ).exists()
