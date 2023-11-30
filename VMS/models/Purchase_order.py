@@ -49,7 +49,12 @@ class PurchaseOrderDetailsSerializer(serializers.ModelSerializer):
             'acknowledgment_date': {'required': False},
             
         }
-
+    def to_representation(self, instance):     
+        ret = super().to_representation(instance)
+        ret["vendor_id"]=instance.vendor.id
+        ret["vendor_code"]=instance.vendor.vendor_code
+        del ret["vendor"]
+        return ret
 
 
 

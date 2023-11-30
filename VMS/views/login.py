@@ -2,8 +2,7 @@
 from rest_framework.generics import GenericAPIView
 from rest_framework import status
 from rest_framework.response import Response
-from VMS.models.Register_user import CustomUser
-
+from django.contrib.auth.models import User
 from rest_framework_simplejwt.tokens import RefreshToken
 
 class LoginView(GenericAPIView):
@@ -13,7 +12,7 @@ class LoginView(GenericAPIView):
             password=request.data.get("password")
             if username==None  or password==None :
                 return Response({"Error": " 'username' and 'password' both the field should be non empty  field"}, status=status.HTTP_400_BAD_REQUEST)
-            user = CustomUser.objects.get(username=username, password=password)
+            user = User.objects.get(username=username, password=password)
             # returing the token 
             refresh = RefreshToken.for_user(user)
             access_token = str(refresh.access_token)
