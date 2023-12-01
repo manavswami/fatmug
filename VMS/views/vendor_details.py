@@ -40,7 +40,7 @@ class VendorDetailsView(GenericAPIView):
             if serializer.is_valid(raise_exception=True):
                 serializer.save(  vendor_code=vendor_code_uuid, 
                 )
-            return Response({"data":"created succesfully"}, status=status.HTTP_201_CREATED,content_type="application/json")        
+            return Response({"data":serializer}, status=status.HTTP_201_CREATED,content_type="application/json")        
         except Exception :  
             return Response({"Error": "error while creating vendor object"}, status=status.HTTP_400_BAD_REQUEST,content_type="application/json")
     def put(self, request, pk,):

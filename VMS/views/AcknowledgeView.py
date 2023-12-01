@@ -13,13 +13,11 @@ from rest_framework.permissions import IsAuthenticated
 
 
 class AcknowledgeView(GenericAPIView):
-    # permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated,)
     def post(self,request,pk=None):
         try:
             if pk:
-                print("pk",pk)
                 vendor_detail=PurchaseOrderDetails.objects.get(po_number=pk)
-                print(vendor_detail)
                 vendor_detail.acknowledgment_date=datetime.datetime.now()
                 vendor_detail.save()                
 
