@@ -13,30 +13,33 @@ from rest_framework.permissions import IsAuthenticated
 
 
 class AcknowledgeView(GenericAPIView):
-    permission_classes = (IsAuthenticated,)
+    # permission_classes = (IsAuthenticated,)
     def post(self,request,pk=None):
         try:
             if pk:
+                print("pk",pk)
                 vendor_detail=PurchaseOrderDetails.objects.get(po_number=pk)
+                print(vendor_detail)
                 vendor_detail.acknowledgment_date=datetime.datetime.now()
-                
-                #findg the avg time of response of vendor 
-                avg_time_diff = PurchaseOrderDetails.objects.filter(vendor=vendor_detail.vendor).annotate(
-                time_diff=ExpressionWrapper(
-                    F('acknowledgment_date') - F('issue_date'),
-                    output_field=fields.DurationField(),
-                )
-                ).aggregate(avg_time=Coalesce(Avg('time_diff'), 0))
+                vendor_detail.save()                
 
+                time_diff = ExpressionWrapper(
+                F('acknowledgment_date') - F('issue_date'),
+                output_field=fields.DurationField(),
+                    )
+                average_time_diff = PurchaseOrderDetails.objects.aggregate(avg_time_diff=Avg(time_diff))
+                
                 #storing response time in hours 
-                total_hours = avg_time_diff['avg_time'].days * 24 + avg_time_diff['avg_time'].seconds / 3600 + avg_time_diff['avg_time'].microseconds / (3600 * 1e6)
+                total_hours = average_time_diff['avg_time_diff'].days * 24 + average_time_diff['avg_time_diff'].seconds / 3600 + average_time_diff['avg_time_diff'].microseconds / (3600 * 1e6)
+
+                #update in historical performance table 
                 HistoricalPerformance_object,_=HistoricalPerformance.objects.get_or_create(vendor=vendor_detail.vendor)
                 HistoricalPerformance_object.date=datetime.datetime.now()
                 
                 HistoricalPerformance_object.average_response_time=int(total_hours)
                 HistoricalPerformance_object.save()
                 vendor_detail.vendor.average_response_time=int(total_hours)
-                vendor_detail.save()
+                vendor_detail.save()    
             return Response({"data":"acknowledgment_date has been updated"}, status=status.HTTP_200_OK)
         except Exception as e:
             return Response({"Error": "Bad Request"}, status=status.HTTP_400_BAD_REQUEST)

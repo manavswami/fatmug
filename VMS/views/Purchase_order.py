@@ -13,7 +13,7 @@ class PurchaseDetailsView(GenericAPIView):
         try:
             if pk:
                 po = get_object_or_404(PurchaseOrderDetails, po_number=pk)
-                serializer = PurchaseOrderDetailsSerializer(po)
+                serializer = PurchaseOrderDetailsSerializer(po).data
             elif  "filter_by" in request.query_params :
                 Purchaseorderlist_by_vendor=PurchaseOrderDetails.objects.filter(vendor__vendor_code=request.query_params["filter_by"])
                 serializer = PurchaseOrderDetailsSerializer(Purchaseorderlist_by_vendor,many=True).data
@@ -29,7 +29,7 @@ class PurchaseDetailsView(GenericAPIView):
             serializer = PurchaseOrderDetailsSerializer(data=request.data)
             if serializer.is_valid(raise_exception=True):
                 serializer.save(po_number=uuid.uuid4().hex[:8])
-                return Response({"data": "created sucessfully"}, status=status.HTTP_201_CREATED)
+                return Response({"data":serializer.data}, status=status.HTTP_201_CREATED)
             return Response({"error":"bad request"}, status=status.HTTP_400_BAD_REQUEST)
         except Exception as e:
             return Response({"error":str(e)}, status=status.HTTP_400_BAD_REQUEST)
