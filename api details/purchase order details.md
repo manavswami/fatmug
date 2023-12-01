@@ -3,11 +3,13 @@ to resgister vendor  we have to use  following curl
 NOTE : JWT token should be pass in header while using api 
 
 like this as shown in image 
-![Alt text](image-2.png)
+![image](https://github.com/manavswami/fatmug/assets/24460055/decda016-a559-45aa-b78a-4a8489a94136)
+
 
     or
 
-![Alt text](image-3.png) 
+![image](https://github.com/manavswami/fatmug/assets/24460055/0fff63ad-c338-46f3-af7f-c3c5ed13d62f)
+
 
 
 
@@ -46,7 +48,7 @@ curl --location 'https://manavswami.pythonanywhere.com/api/purchase_orders/' \
 
 
 url : https://manavswami.pythonanywhere.com/api/purchase_orders/
-
+method :post
 body :
 
 {
@@ -64,8 +66,15 @@ body :
 
 }
 
+![image](https://github.com/manavswami/fatmug/assets/24460055/0f7707c8-aae6-4b9e-9e9f-94eb7e899faf)
+
 
 NOTE here "vendor" id is pass not the vendor code
+
+
+
+
+
 
 for updating any exiting order  we havr to use following curl
 
@@ -89,6 +98,7 @@ curl --location --request PUT 'https://manavswami.pythonanywhere.com/api/purchas
 
 
 url: http://127.0.0.1:8000/api/purchase_orders/{po_number}/
+method : put
 body :
 {
 
@@ -104,3 +114,16 @@ body :
     "vendor": 1
 
 }
+![image](https://github.com/manavswami/fatmug/assets/24460055/21692c73-ebdb-4efd-ac29-6dc2eae980e1)
+
+
+
+to delete po_order
+
+curl --location --request DELETE 'https://manavswami.pythonanywhere.com/api/purchase_orders/1/' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAxNTQwNzA0LCJpYXQiOjE3MDE0NTQzMDQsImp0aSI6IjM2NTYwNjQ3NjZhNzRjYjE4M2QwZjE1YjM3MTcxYTBhIiwidXNlcl9pZCI6Mn0.q7vaef15xqcwk0F1pA_Tr6PSu6iV9t_ecBhD_BAoqos' \
+--data ''
+
+url:https://manavswami.pythonanywhere.com/api/purchase_orders/{po_order}/
+
+![image](https://github.com/manavswami/fatmug/assets/24460055/b30f638f-4c20-4fcc-8b75-0579059831bd)
