@@ -20,4 +20,4 @@ body :
     "password":"2"
 }
 
-![Alt text](image-1.png)
+![image](https://github.com/manavswami/fatmug/assets/24460055/e653942a-2830-47f6-b376-426bc9a8c2d4)
