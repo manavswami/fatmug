@@ -39,7 +39,7 @@ class VendorDetailsView(GenericAPIView):
                 return Response({"Error": f"for creating Vendor 'contact_details', 'name' , and 'address'  fields are required"}, status=status.HTTP_400_BAD_REQUEST)
             object_exit_or_not=Vendor.objects.filter(contact_details=contact_details,  address=address,name=name ).exists()
             if object_exit_or_not:
-                return Response({"Error": f"Vendor already exits with given contact_details '{contact_details}' address '{address}' "}, status=status.HTTP_400_BAD_REQUEST)
+                return Response({"Error": f"Vendor already exits with given contact_details '{contact_details} ' address '{address}'  and name '{name}' "}, status=status.HTTP_400_BAD_REQUEST)
             vendor_code_uuid=uuid.uuid4().hex[:8]
             
             serializer = VendordetailsSerializer(data=request.data)
