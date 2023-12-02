@@ -67,7 +67,7 @@ class VendorDetailsView(GenericAPIView):
         serializer = VendordetailsSerializer(
             instance=instance, data=updated_data, partial=True,)
         if serializer.is_valid(raise_exception=True):
-            serializer.save(updatedBy=name)
+            serializer.save()
             return Response(serializer.data, status=status.HTTP_200_OK)
 
         return Response({"error":"unable to update the vandor details"},status=status.HTTP_400_BAD_REQUEST, )

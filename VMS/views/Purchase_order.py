@@ -52,7 +52,7 @@ class PurchaseDetailsView(GenericAPIView):
         
     def delete(self, request, pk):
         try:
-            instance =PurchaseOrderDetails.objects.get(vendor_code=pk)
+            instance =PurchaseOrderDetails.objects.get(po_number=pk)
         except PurchaseOrderDetails.DoesNotExist:
             return Response({"error": "Object not found"}, status=status.HTTP_404_NOT_FOUND)
         if instance is not None:
