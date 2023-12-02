@@ -15,14 +15,13 @@ from rest_framework_simplejwt.views import (
 urlpatterns = [
     path('vendors/', VendorDetailsView.as_view(), name='vendor_details'),
     path('vendors/<str:pk>/', VendorDetailsView.as_view(), name='vendor_details'),
-    path('purchase_orders/', PurchaseDetailsView.as_view(), name='vendor_details'),
-    path('purchase_orders/<str:pk>/', PurchaseDetailsView.as_view(), name='vendor_details'),
-    path('purchase_orders/<str:pk>/acknowledge/', AcknowledgeView.as_view(), name='vendor_details'),
+    path('purchase_orders/', PurchaseDetailsView.as_view(), name='purchase_details'),
+    path('purchase_orders/<str:pk>/', PurchaseDetailsView.as_view(), name='purchase_details'),
+    path('purchase_orders/<str:pk>/acknowledge/', AcknowledgeView.as_view(), name='purchase_acknowledge'),
     path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    path('registeruser/', ResgisterView.as_view(), name='token_refresh'),
-    path('login/', LoginView.as_view(), name='token_refresh'),
-    path('vendors/<str:pk>/performance/', PerformanceMatrixView.as_view(), name='vendor_details'),
+    path('registeruser/', ResgisterView.as_view(), name='register_user'),
+    path('login/', LoginView.as_view(), name='token_login'),
+    path('vendors/<str:pk>/performance/', PerformanceMatrixView.as_view(), name='vendor_performance'),
 
-    # Add more app1 URLs as needed
 ]

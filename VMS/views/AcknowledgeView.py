@@ -10,7 +10,7 @@ import datetime
 from django.db.models import F, ExpressionWrapper, fields
 from django.db.models.functions import Coalesce
 from rest_framework.permissions import IsAuthenticated
-
+from django.utils import timezone
 
 class AcknowledgeView(GenericAPIView):
     permission_classes = (IsAuthenticated,)
@@ -18,7 +18,7 @@ class AcknowledgeView(GenericAPIView):
         try:
             if pk:
                 vendor_detail=PurchaseOrderDetails.objects.get(po_number=pk)
-                vendor_detail.acknowledgment_date=datetime.datetime.now()
+                vendor_detail.acknowledgment_date=timezone.now()
                 vendor_detail.save()                
 
                 time_diff = ExpressionWrapper(
@@ -32,7 +32,7 @@ class AcknowledgeView(GenericAPIView):
 
                 #update in historical performance table 
                 HistoricalPerformance_object,_=HistoricalPerformance.objects.get_or_create(vendor=vendor_detail.vendor)
-                HistoricalPerformance_object.date=datetime.datetime.now()
+                HistoricalPerformance_object.date=timezone.now()
                 
                 HistoricalPerformance_object.average_response_time=int(total_hours)
                 HistoricalPerformance_object.save()
