@@ -36,7 +36,7 @@ class VendorDetailsView(GenericAPIView):
                 address=" ".join(address.split()) #removing all extra space from text
                 request.data['address']=address
             if contact_details ==None  or address== None or name==None:
-                return Response({"Error": f"for creating Vendor 'contact_details', 'name, and 'address'  fields are required"}, status=status.HTTP_400_BAD_REQUEST)
+                return Response({"Error": f"for creating Vendor 'contact_details', 'name' , and 'address'  fields are required"}, status=status.HTTP_400_BAD_REQUEST)
             object_exit_or_not=Vendor.objects.filter(contact_details=contact_details,  address=address,name=name ).exists()
             if object_exit_or_not:
                 return Response({"Error": f"Vendor already exits with given contact_details '{contact_details}' address '{address}' "}, status=status.HTTP_400_BAD_REQUEST)
