@@ -31,6 +31,7 @@ class HistoricalPerformanceSerializer(serializers.ModelSerializer):
 
     def to_representation(self, instance):     
         ret = super().to_representation(instance)
-        ret["average_response_time"]=str(ret['average_response_time'])+ "  hours"
+        if instance.average_response_time!=None:
+            ret["average_response_time"]=str(ret['average_response_time'])+ "  hours"
         ret["vendor code"]=instance.vendor.vendor_code
         return ret
