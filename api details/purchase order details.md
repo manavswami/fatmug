@@ -13,6 +13,7 @@ like this as shown in image
 
 
 
+----------------------------------------------------------------Get method---------------------------------------------------------------------------
 
 to get all the purchase order details we can use below curl 
 
@@ -23,7 +24,26 @@ curl --location 'https://manavswami.pythonanywhere.com/api/purchase_orders/' \
 
 url : https://manavswami.pythonanywhere.com/api/purchase_orders/
 
+----------------------------------------------------------------Get method---------------------------------------------------------------------------
 
+filter PO by vendor code
+
+curl --location 'https://manavswami.pythonanywhere.com/api/purchase_orders/?filter_by=123' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAxNTQwNDQ5LCJpYXQiOjE3MDE0NTQwNDksImp0aSI6IjJhY2E2ODgxNmE1ZTRiOWJhYTQwMDU1Mzc0NGM1NTIwIiwidXNlcl9pZCI6Mn0.8Y_Je0log0M49G0D1bD0Stf74lx45iZUqAT8VfiXIhQ' \
+--data ''
+
+
+url: https://manavswami.pythonanywhere.com/api/purchase_orders/?filter_by={vendor_code}
+
+method: get
+
+
+
+![image](https://github.com/manavswami/fatmug/assets/24460055/019bfddf-21ce-461e-b291-68875c27d14a)
+
+
+
+----------------------------------------------------------------POST method---------------------------------------------------------------------------
 to create order we can use below curl 
 
 curl --location 'https://manavswami.pythonanywhere.com/api/purchase_orders/' \
@@ -74,6 +94,7 @@ NOTE here "vendor" id is pass not the vendor code
 
 
 
+----------------------------------------------------------------PUT method---------------------------------------------------------------------------
 
 
 for updating any exiting order  we havr to use following curl
@@ -117,6 +138,7 @@ body :
 ![image](https://github.com/manavswami/fatmug/assets/24460055/21692c73-ebdb-4efd-ac29-6dc2eae980e1)
 
 
+----------------------------------------------------------------Delete method-------------------------------------------------------------------------
 
 to delete po_order
 
