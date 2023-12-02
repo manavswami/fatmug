@@ -1,4 +1,4 @@
-to resgister vendor  we have to use  following curl
+
 
 NOTE : JWT token should be pass in header while using api 
 
