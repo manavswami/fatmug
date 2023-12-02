@@ -1,14 +1,17 @@
-to resgister vendor  we have to use  following curl
 
 NOTE : JWT token should be pass in header while using api 
 
 like this as shown in image 
-![Alt text](image-2.png)
 
-    or
+![image](https://github.com/manavswami/fatmug/assets/24460055/0fff63ad-c338-46f3-af7f-c3c5ed13d62f)
 
-![Alt text](image-3.png) 
 
+
+----------------------------------------------------------------POST method---------------------------------------------------------------------------
+
+
+
+to resgister vendor  we have to use  following curl
 
 
 for post method :
@@ -30,30 +33,14 @@ body:
     "address": "my22 address"
 }
 
-![Alt text](image-8.png)
+![image](https://github.com/manavswami/fatmug/assets/24460055/c6ce0f60-bf20-410d-b67c-f9cabf808ede)
 
 
 
 
-filter all order by vendor code
-
-
-
-curl --location 'https://manavswami.pythonanywhere.com/api/purchase_orders/?filter_by=123' \
---header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAxNDM3NzIwLCJpYXQiOjE3MDEzNTEzMjAsImp0aSI6ImNiMGQzZjE2N2IzYTQ2MDBiNjhlYzYzNGRkMjI0MjM5IiwidXNlcl9pZCI6Mn0.0LxJya6kUTEWQ3kS2Nm4cXqXDB2pNyKzgr6rXKBW-ag' \
---data ''
-
-url :https://manavswami.pythonanywhere.com/api/purchase_orders/?filter_by={vendor_code} 
-
-param {
-    filter_by:{vendor_code} 
-}
-
-![Alt text](image-7.png)
-
+----------------------------------------------------------------Get method---------------------------------------------------------------------------
 
 Get method : get all vendor list 
-
 
 
 curl --location 'https://manavswami.pythonanywhere.com/api/vendors/' \
@@ -63,7 +50,11 @@ curl --location 'https://manavswami.pythonanywhere.com/api/vendors/' \
 
 
 url : https://manavswami.pythonanywhere.com/api/vendors/
+method :get
 
+![image](https://github.com/manavswami/fatmug/assets/24460055/d47aa355-c49a-4515-a064-e24d12d029df)
+
+----------------------------------------------------------------Get method---------------------------------------------------------------------------
 
 
 Get method :  Retrieve a specific vendor's details.
@@ -75,8 +66,13 @@ curl --location 'https://manavswami.pythonanywhere.com/api/vendors/123/' \
 
 
 url: https://manavswami.pythonanywhere.com/api/vendors/{vendor_id}/
+method :get
 
-![Alt text](image-4.png)
+
+![image](https://github.com/manavswami/fatmug/assets/24460055/faa0e6c4-789c-4948-9dd7-b0d211b7eebb)
+
+
+----------------------------------------------------------------PUT method---------------------------------------------------------------------------
 
 
 
@@ -93,7 +89,7 @@ curl --location --request PUT 'https://manavswami.pythonanywhere.com/api/vendors
 
 
 url :https://manavswami.pythonanywhere.com/api/vendors/{{vendor_code}}/
-
+method :put
 body :
 {   
     "contact_details": "my 1   vd  22contact",
@@ -101,6 +97,11 @@ body :
 }
 
 ![Alt text](image-5.png)
+
+![image](https://github.com/manavswami/fatmug/assets/24460055/72b887ab-8a78-4513-acfa-9b75a17780c7)
+
+
+----------------------------------------------------------------DELETE method-------------------------------------------------------------------------
 
 
 
@@ -112,5 +113,6 @@ curl --location --request DELETE 'https://manavswami.pythonanywhere.com/api/vend
 
 
 url : https://manavswami.pythonanywhere.com/api/vendors/{{vendor_code}}/
+method :delete
 
-![Alt text](image-6.png)
+![image](https://github.com/manavswami/fatmug/assets/24460055/fef13e80-0f78-4323-999f-91f2ddda98e0)
