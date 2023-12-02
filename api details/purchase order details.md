@@ -3,10 +3,7 @@
 NOTE : JWT token should be pass in header while using api 
 
 like this as shown in image 
-![image](https://github.com/manavswami/fatmug/assets/24460055/decda016-a559-45aa-b78a-4a8489a94136)
 
-
-    or
 
 ![image](https://github.com/manavswami/fatmug/assets/24460055/0fff63ad-c338-46f3-af7f-c3c5ed13d62f)
 
