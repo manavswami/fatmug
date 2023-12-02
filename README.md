@@ -26,7 +26,7 @@ then
 cd fatmug
 
 install the requirements.txt file 
-using commnd pip install -r  requirements.txt
+using commnd pip install -r  requirment.txt
 
 NOTE to run server use cmd:  python manage.py runserver   
 
