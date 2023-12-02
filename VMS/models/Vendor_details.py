@@ -12,6 +12,7 @@ from .BaseModel import BaseModel
 
 class Vendor(BaseModel):
     id = models.BigAutoField(primary_key = True)
+    name = models.CharField(max_length=255,blank=True,null=True)
     contact_details=models.TextField()
     address=models.TextField()
     vendor_code = models.CharField(max_length=100,)
@@ -33,5 +34,5 @@ class VendordetailsSerializer(serializers.ModelSerializer):
             'average_response_time': {'required': False},
             'fulfillment_rate': {'required': False},
             'vendor_code': {'required': False},
-            
+            'name': {'required': False},
         }
