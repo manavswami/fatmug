@@ -21,4 +21,4 @@ body :
 }
 
 
-![Alt text](image.png)
+![image](https://github.com/manavswami/fatmug/assets/24460055/7f927d97-3709-4335-b8a8-d66e62dc29b3)
