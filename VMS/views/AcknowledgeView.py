@@ -33,10 +33,9 @@ class AcknowledgeView(GenericAPIView):
                 #update in historical performance table 
                 HistoricalPerformance_object,_=HistoricalPerformance.objects.get_or_create(vendor=vendor_detail.vendor)
                 HistoricalPerformance_object.date=timezone.now()
-                
-                HistoricalPerformance_object.average_response_time=int(total_hours)
+                HistoricalPerformance_object.average_response_time=total_hours
                 HistoricalPerformance_object.save()
-                vendor_detail.vendor.average_response_time=int(total_hours)
+                vendor_detail.vendor.average_response_time=total_hours
                 vendor_detail.save()    
             return Response({"data":"acknowledgment_date has been updated"}, status=status.HTTP_200_OK)
         except Exception as e:
