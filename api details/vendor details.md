@@ -18,9 +18,10 @@ for post method :
 
 curl --location 'https://manavswami.pythonanywhere.com/api/vendors/' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAxNDQ0NjUzLCJpYXQiOjE3MDEzNTgyNTMsImp0aSI6IjAzZjkzZWNmODVkOTQwYmZiZmVkYmNiODM5YzIwNGFkIiwidXNlcl9pZCI6NH0.d8ZFrAsU1wp9UawJJvl_wRml2hbUo9JW7uzMDplkqAg' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAxNzA2MjY3LCJpYXQiOjE3MDE2MTk4NjcsImp0aSI6ImU0ZWRkMjNjNjQ4MDRiODhiMjkzMjgzZjU5MGFhNzM0IiwidXNlcl9pZCI6Mn0.yN7W3DfyLa_l-qtMBw6BaXwmrf73TLQazwxwVf7lbvU' \
 --data '{   
-    "contact_details": "my 1   vd  22contact",
+    "contact_details": "my 1 11112sa  vd  22contact",
+    "name":"vendor",
     "address": "my22 address"
 }'
 
@@ -30,10 +31,12 @@ url :https://manavswami.pythonanywhere.com/api/vendors/
 body:
 {   
     "contact_details": "my 1   vd  22contact",
+    "name":"vendor",
     "address": "my22 address"
 }
 
-![image](https://github.com/manavswami/fatmug/assets/24460055/c6ce0f60-bf20-410d-b67c-f9cabf808ede)
+![image](https://github.com/manavswami/fatmug/assets/24460055/9153b410-1bac-42c3-b801-d519b5eb3c31)
+
 
 
 
@@ -52,7 +55,8 @@ curl --location 'https://manavswami.pythonanywhere.com/api/vendors/' \
 url : https://manavswami.pythonanywhere.com/api/vendors/
 method :get
 
-![image](https://github.com/manavswami/fatmug/assets/24460055/d47aa355-c49a-4515-a064-e24d12d029df)
+![image](https://github.com/manavswami/fatmug/assets/24460055/e93ff549-edae-400c-97b5-438fc9399065)
+
 
 ----------------------------------------------------------------Get method---------------------------------------------------------------------------
 
